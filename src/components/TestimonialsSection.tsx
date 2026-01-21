@@ -103,106 +103,106 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-card">
+    <section id="testimonials" className="py-12 sm:py-20 bg-card">
       <div className="container mx-auto px-4">
         {/* TripAdvisor Badge */}
-        <AnimatedSection className="flex justify-center mb-12">
+        <AnimatedSection className="flex justify-center mb-8 sm:mb-12">
           <a
             href="https://www.tripadvisor.co.uk/Attraction_Review-g297897-d15848526-Reviews-T_and_T_Travels-Negombo_Western_Province.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col sm:flex-row items-center gap-4 bg-muted hover:bg-muted/80 rounded-2xl px-6 py-4 sm:px-8 sm:py-5 transition-all shadow-lg hover:shadow-xl border border-border"
+            className="group flex flex-col items-center gap-3 sm:flex-row sm:gap-4 bg-muted hover:bg-muted/80 rounded-xl sm:rounded-2xl px-4 py-3 sm:px-8 sm:py-5 transition-all shadow-lg hover:shadow-xl border border-border w-full max-w-sm sm:max-w-none sm:w-auto"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="text-[#00AF87]">
                 <TripAdvisorIcon />
               </div>
-              <span className="font-bold text-lg text-foreground">TripAdvisor</span>
+              <span className="font-bold text-base sm:text-lg text-foreground">TripAdvisor</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className="w-5 h-5 rounded-full bg-[#00AF87]" />
+                  <div key={i} className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#00AF87]" />
                 ))}
               </div>
-              <span className="text-2xl font-bold text-foreground">5.0</span>
+              <span className="text-xl sm:text-2xl font-bold text-foreground">5.0</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <span className="font-medium">24 Reviews</span>
+              <span className="font-medium text-sm sm:text-base">24 Reviews</span>
               <ExternalLink className="h-4 w-4 group-hover:text-primary transition-colors" />
             </div>
           </a>
         </AnimatedSection>
 
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-sm">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <span className="text-primary font-semibold tracking-widest uppercase text-xs sm:text-sm">
             Testimonials
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
             What Our <span className="text-primary">Travelers Say</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-sm sm:text-lg text-muted-foreground px-2">
             Real reviews from travelers who've experienced the T & T difference.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2} className="max-w-4xl mx-auto">
-          <div className="relative bg-muted rounded-3xl p-8 md:p-12">
-            <Quote className="absolute top-8 left-8 h-12 w-12 text-primary/20" />
+          <div className="relative bg-muted rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12">
+            <Quote className="absolute top-4 left-4 sm:top-8 sm:left-8 h-8 w-8 sm:h-12 sm:w-12 text-primary/20" />
 
-            <div className="text-center">
+            <div className="text-center pt-6 sm:pt-0">
               {/* Stars */}
-              <div className="flex justify-center gap-1 mb-6">
+              <div className="flex justify-center gap-1 mb-4 sm:mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="h-6 w-6 fill-primary text-primary"
+                    className="h-4 w-4 sm:h-6 sm:w-6 fill-primary text-primary"
                   />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 font-medium">
+              <blockquote className="text-base sm:text-xl md:text-2xl text-foreground leading-relaxed mb-6 sm:mb-8 font-medium px-2">
                 "{testimonials[currentIndex].text}"
               </blockquote>
 
               {/* Author */}
               <div>
-                <p className="font-serif text-xl font-bold text-foreground">
+                <p className="font-serif text-lg sm:text-xl font-bold text-foreground">
                   {testimonials[currentIndex].name}
                 </p>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm sm:text-base">
                   {testimonials[currentIndex].country} • {testimonials[currentIndex].tripType} • {testimonials[currentIndex].date}
                 </p>
               </div>
             </div>
 
             {/* Navigation */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               <button
                 onClick={prevTestimonial}
-                className="p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="p-2 sm:p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
               <button
                 onClick={nextTestimonial}
-                className="p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="p-2 sm:p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
             </div>
 
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-6">
+            {/* Dots - Hidden on very small screens, show subset */}
+            <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 flex-wrap max-w-[280px] sm:max-w-none mx-auto">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-primary w-6" : "bg-border"
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
+                    index === currentIndex ? "bg-primary w-4 sm:w-6" : "bg-border"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

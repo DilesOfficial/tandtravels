@@ -50,34 +50,34 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section id="services" className="py-12 sm:py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-sm">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <span className="text-primary font-semibold tracking-widest uppercase text-xs sm:text-sm">
             Our Services
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
             Exceptional Travel <span className="text-primary">Experiences</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-sm sm:text-lg text-muted-foreground px-2">
             From seamless airport transfers to adventure-packed tours, we offer
             comprehensive travel services tailored to your needs.
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <StaggerItem key={index}>
-                <div className="bg-card p-8 rounded-2xl shadow-lg hover-lift group h-full">
-                  <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon className="h-7 w-7 text-primary-foreground" />
+                <div className="bg-card p-5 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg hover-lift group h-full">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                    <Icon className="h-5 w-5 sm:h-7 sm:w-7 text-primary-foreground" />
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-4">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
                 </div>
@@ -86,11 +86,11 @@ export function ServicesSection() {
           })}
         </StaggerContainer>
 
-        <AnimatedSection delay={0.4} className="text-center mt-12">
+        <AnimatedSection delay={0.4} className="text-center mt-8 sm:mt-12">
           <Button
             size="lg"
             onClick={scrollToContact}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 font-semibold"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold"
           >
             Plan Your Trip Today
           </Button>

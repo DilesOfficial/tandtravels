@@ -39,9 +39,10 @@ export function Navbar() {
           ? "bg-card/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
+      style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left, 0px))', paddingRight: 'max(1rem, env(safe-area-inset-right, 0px))' }}>
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <a
             href="#home"
@@ -51,7 +52,7 @@ export function Navbar() {
             }}
             className="flex items-center gap-3"
           >
-            <img src={logo} alt="T & T Travels" className="h-14 w-auto" />
+            <img src={logo} alt="T & T Travels" className="h-10 sm:h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation */}

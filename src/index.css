@@ -108,17 +108,50 @@
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
+    touch-action: pan-y pinch-zoom;
   }
 
-  html {
-    scroll-behavior: smooth;
+  /* Prevent media from causing subtle horizontal overflow */
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  /* iPhone safe area support */
+  :root {
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
   }
 }
 
@@ -163,4 +196,41 @@
 
 .font-sans {
   font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* iPhone-specific responsive adjustments */
+@media screen and (max-width: 375px) {
+  /* iPhone SE and smaller */
+  .hero-content {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 430px) {
+  /* iPhone 14/15 Pro Max range */
+  .hero-content {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Dynamic viewport height support for modern browsers */
+@supports (height: 100dvh) {
+  .h-screen-dynamic {
+    height: 100dvh;
+  }
+  .min-h-screen-dynamic {
+    min-height: 100dvh;
+  }
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  .h-screen-dynamic {
+    height: 100vh;
+  }
+  .min-h-screen-dynamic {
+    min-height: 100vh;
+  }
 }

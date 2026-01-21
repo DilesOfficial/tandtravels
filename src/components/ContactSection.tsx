@@ -83,38 +83,38 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-card">
+    <section id="contact" className="py-12 sm:py-20 bg-card">
       <div className="container mx-auto px-4">
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-sm">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <span className="text-primary font-semibold tracking-widest uppercase text-xs sm:text-sm">
             Contact Us
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
             Let's Plan Your <span className="text-primary">Journey</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-sm sm:text-lg text-muted-foreground px-2">
             Ready to explore Sri Lanka? Get in touch with us and let's create your
             perfect travel experience together.
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Info */}
-          <AnimatedSection direction="left" className="space-y-8">
-            <div className="grid sm:grid-cols-2 gap-6">
+          <AnimatedSection direction="left" className="space-y-6 sm:space-y-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-muted p-6 rounded-xl"
+                    className="bg-muted p-4 sm:p-6 rounded-lg sm:rounded-xl"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-primary-foreground" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary flex items-center justify-center mb-3 sm:mb-4">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-foreground" />
                     </div>
-                    <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
+                    <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">{info.title}</h3>
                     {info.details.map((detail, i) => (
-                      <p key={i} className="text-muted-foreground">
+                      <p key={i} className="text-muted-foreground text-xs sm:text-base">
                         {detail}
                       </p>
                     ))}
@@ -124,7 +124,7 @@ export function ContactSection() {
             </div>
 
             {/* Google Map */}
-            <div className="rounded-xl overflow-hidden h-64">
+            <div className="rounded-lg sm:rounded-xl overflow-hidden h-48 sm:h-64">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.9!2d79.8777!3d7.1167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2ee9c6f4c8d5b%3A0x9e0c1c1c1c1c1c1c!2sNo%20332%20Munidasa%20Kumarathunge%20Rd%2C%20Seeduwa%2011410!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
                 width="100%"
@@ -140,8 +140,8 @@ export function ContactSection() {
           </AnimatedSection>
 
           {/* Contact Form */}
-          <AnimatedSection direction="right" className="bg-muted p-8 rounded-2xl">
-            <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
+          <AnimatedSection direction="right" className="bg-muted p-5 sm:p-8 rounded-xl sm:rounded-2xl">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
               Send us a Message
             </h3>
             <form
@@ -154,11 +154,11 @@ export function ContactSection() {
             >
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                   >
                     Your Name
                   </label>
@@ -169,13 +169,13 @@ export function ContactSection() {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="bg-card"
+                    className="bg-card text-sm sm:text-base"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                   >
                     Email Address
                   </label>
@@ -187,14 +187,14 @@ export function ContactSection() {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="bg-card"
+                    className="bg-card text-sm sm:text-base"
                   />
                 </div>
               </div>
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                 >
                   Phone Number
                 </label>
@@ -205,13 +205,13 @@ export function ContactSection() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+1 234 567 8900"
-                  className="bg-card"
+                  className="bg-card text-sm sm:text-base"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                 >
                   Your Message
                 </label>
@@ -221,21 +221,21 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your travel plans..."
-                  rows={5}
+                  rows={4}
                   required
-                  className="bg-card resize-none"
+                  className="bg-card resize-none text-sm sm:text-base"
                 />
               </div>
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6 font-semibold"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-lg py-4 sm:py-6 font-semibold"
               >
                 {isSubmitting ? (
                   "Sending..."
                 ) : (
                   <>
-                    <Send className="h-5 w-5 mr-2" />
+                    <Send className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                     Send Message
                   </>
                 )}

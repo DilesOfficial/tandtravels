@@ -42,17 +42,17 @@ export function Footer() {
 
   return (
     <footer className="bg-foreground text-background">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 py-10 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <img src={logo} alt="T & T Travels" className="h-16 w-auto mb-4" />
-            <p className="text-background/70 mb-6">
+          <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
+            <img src={logo} alt="T & T Travels" className="h-12 sm:h-16 w-auto mb-4 mx-auto sm:mx-0" />
+            <p className="text-background/70 mb-6 text-sm sm:text-base">
               Your trusted travel partner for over two decades. Experience the
               beauty of Sri Lanka with personalized service and unforgettable
               memories.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4 justify-center sm:justify-start">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -61,10 +61,10 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
                     aria-label={social.label}
                   >
-                    {(social as any).isComponent ? <Icon /> : <Icon className="h-5 w-5" />}
+                    {(social as any).isComponent ? <Icon /> : <Icon className="h-4 w-4 sm:h-5 sm:w-5" />}
                   </a>
                 );
               })}
@@ -72,9 +72,9 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-serif text-xl font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+          <div className="text-center sm:text-left">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -83,7 +83,7 @@ export function Footer() {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="text-background/70 hover:text-primary transition-colors"
+                    className="text-background/70 hover:text-primary transition-colors text-sm sm:text-base"
                   >
                     {link.name}
                   </a>
@@ -93,43 +93,43 @@ export function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="font-serif text-xl font-bold mb-6">Contact Info</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-background/70">
+          <div className="text-center sm:text-left">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Contact Info</h3>
+            <ul className="space-y-3 sm:space-y-4">
+              <li className="flex items-start gap-3 justify-center sm:justify-start">
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-background/70 text-sm sm:text-base text-left">
                   No - 332 Munidasa Kumarathunge Rd,<br />
                   Seeduwa 11410, Sri Lanka
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-background/70">+94 75 030 7030</span>
+              <li className="flex items-center gap-3 justify-center sm:justify-start">
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+                <span className="text-background/70 text-sm sm:text-base">+94 75 030 7030</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-background/70">info@tandttravels.com</span>
+              <li className="flex items-center gap-3 justify-center sm:justify-start">
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+                <span className="text-background/70 text-sm sm:text-base">info@tandttravels.com</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h3 className="font-serif text-xl font-bold mb-6">Newsletter</h3>
-            <p className="text-background/70 mb-4">
+          <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Newsletter</h3>
+            <p className="text-background/70 mb-4 text-sm sm:text-base">
               Subscribe to receive travel tips, exclusive offers, and Sri Lanka
               travel inspiration.
             </p>
-            <form className="space-y-3">
+            <form className="space-y-3 max-w-sm mx-auto sm:mx-0">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full px-4 py-3 rounded-lg bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary"
+                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary text-sm sm:text-base"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
+                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors text-sm sm:text-base"
               >
                 Subscribe
               </button>
@@ -138,11 +138,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-background/10 mt-12 pt-8 text-center space-y-2">
-          <p className="text-background/60">
+        <div className="border-t border-background/10 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center space-y-1 sm:space-y-2">
+          <p className="text-background/60 text-xs sm:text-base">
             © {new Date().getFullYear()} T & T Travels. All rights reserved.
           </p>
-          <p className="text-background/50 text-sm">
+          <p className="text-background/50 text-xs sm:text-sm">
             Developed by{" "}
             <a
               href="https://ideacode.org"

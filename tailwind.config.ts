@@ -5,6 +5,15 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    screens: {
+      'xxs': '320px',   // iPhone SE, small phones
+      'xs': '375px',    // iPhone SE (newer), small-medium
+      'sm': '640px',    // Standard mobile breakpoint
+      'md': '768px',    // Tablets
+      'lg': '1024px',   // Laptops
+      'xl': '1280px',   // Desktops
+      '2xl': '1536px',  // Large screens
+    },
     container: {
       center: true,
       padding: "2rem",
