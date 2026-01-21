@@ -138,9 +138,20 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-background/10 mt-12 pt-8 text-center">
+        <div className="border-t border-background/10 mt-12 pt-8 text-center space-y-2">
           <p className="text-background/60">
             © {new Date().getFullYear()} T & T Travels. All rights reserved.
+          </p>
+          <p className="text-background/50 text-sm">
+            Developed by{" "}
+            <a
+              href="https://ideacode.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              ideacode.org
+            </a>
           </p>
         </div>
       </div>

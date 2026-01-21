@@ -96,8 +96,11 @@ export function HeroCarousel() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl font-medium mb-4 tracking-widest uppercase opacity-90 animate-fade-in">
+            <p className="text-lg md:text-xl font-medium mb-2 tracking-widest uppercase opacity-90 animate-fade-in">
               Welcome to T & T Travels
+            </p>
+            <p className="text-2xl md:text-3xl font-serif italic text-primary mb-6 animate-fade-in">
+              "Bookmark in your own way, With Save Day Our Travel Agency"
             </p>
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Your Trusted Travel Partner
