@@ -12,27 +12,38 @@ const promises = [
 
 export function PromiseSection() {
   return (
-    <section className="py-20 bg-accent text-accent-foreground">
-      <div className="container mx-auto px-4">
-        <AnimatedSection className="max-w-4xl mx-auto text-center">
-          <span className="font-semibold tracking-widest uppercase text-sm opacity-80">
+    <section className="py-16 sm:py-24 bg-accent text-accent-foreground relative overflow-hidden">
+      {/* Decorative grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-12">
+          <span className="inline-block font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm mb-4">
             Our Promise
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-5 leading-tight">
             Our Commitment to You
           </h2>
-          <p className="text-lg opacity-90 mb-12 max-w-2xl mx-auto">
-            At T & T Travels, we believe that trust is the foundation of every great
+          <p className="text-base sm:text-lg opacity-90 max-w-2xl mx-auto leading-relaxed">
+            At T &amp; T Travels, we believe that trust is the foundation of every great
             journey. Here's what we promise to every traveler who chooses us.
           </p>
         </AnimatedSection>
 
-        <StaggerContainer staggerDelay={0.08} className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 text-left">
+        <StaggerContainer staggerDelay={0.08} className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4 sm:gap-6 text-left">
           {promises.map((promise, index) => (
             <StaggerItem key={index}>
-              <div className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 h-full">
-                <CheckCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
-                <p className="text-lg font-medium">{promise}</p>
+              <div className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/10 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mt-0.5">
+                  <CheckCircle className="h-5 w-5" />
+                </div>
+                <p className="text-base sm:text-lg font-medium leading-relaxed">{promise}</p>
               </div>
             </StaggerItem>
           ))}

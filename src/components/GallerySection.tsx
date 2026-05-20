@@ -25,13 +25,11 @@ export function GallerySection() {
     <section id="gallery" className="py-12 sm:py-20 bg-muted">
       <div className="container mx-auto px-4">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-xs sm:text-sm">
-            Gallery
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+          <span className="section-badge">Gallery</span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-4 mb-5 leading-tight">
             Glimpses of <span className="text-primary">Paradise</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground px-2">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Explore the breathtaking landscapes, rich culture, and natural wonders
             that await you in Sri Lanka.
           </p>
@@ -67,22 +65,31 @@ export function GallerySection() {
       {/* Lightbox */}
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-4 right-4 p-2 text-white hover:text-primary transition-colors"
+            className="absolute top-4 right-4 p-3 rounded-full bg-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-200"
             onClick={() => setSelectedImage(null)}
             aria-label="Close"
           >
-            <X className="h-8 w-8" />
+            <X className="h-6 w-6" />
           </button>
-          <img
-            src={galleryImages[selectedImage].src}
-            alt={galleryImages[selectedImage].title}
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={galleryImages[selectedImage].src}
+              alt={galleryImages[selectedImage].title}
+              className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+            />
+            <div className="text-center">
+              <span className="text-primary text-xs font-medium uppercase tracking-widest">
+                {galleryImages[selectedImage].category}
+              </span>
+              <h3 className="font-serif text-xl font-bold text-white mt-1">
+                {galleryImages[selectedImage].title}
+              </h3>
+            </div>
+          </div>
         </div>
       )}
     </section>

@@ -1,5 +1,7 @@
-import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/tt-logo.png";
+
+const WHATSAPP_NUMBER = "94750307030";
 
 const quickLinks = [
   { name: "Home", href: "#home" },
@@ -41,18 +43,40 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background">
-      <div className="container mx-auto px-4 py-10 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+    <footer className="bg-foreground text-background relative overflow-hidden">
+      {/* Decorative blob */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl translate-x-1/3 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-primary/5 blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+      {/* WhatsApp CTA Banner */}
+      <div className="bg-gradient-to-r from-green-600 to-emerald-500 py-4 px-4">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white font-medium text-sm sm:text-base text-center sm:text-left">
+            💬 Ready to book? Chat with us instantly on WhatsApp!
+          </p>
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to enquire about a tour with T & T Travels.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white text-green-700 font-bold px-5 py-2 rounded-xl text-sm hover:bg-green-50 transition-colors shadow-md whitespace-nowrap"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Chat Now
+          </a>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 sm:py-16 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
-            <img src={logo} alt="T & T Travels" className="h-12 sm:h-16 w-auto mb-4 mx-auto sm:mx-0" />
-            <p className="text-background/70 mb-6 text-sm sm:text-base">
+            <img src={logo} alt="T & T Travels" className="h-12 sm:h-16 w-auto mb-5 mx-auto sm:mx-0" />
+            <p className="text-background/70 mb-6 text-sm sm:text-base leading-relaxed">
               Your trusted travel partner for over two decades. Experience the
               beauty of Sri Lanka with personalized service and unforgettable
               memories.
             </p>
-            <div className="flex gap-3 sm:gap-4 justify-center sm:justify-start">
+            <div className="flex gap-3 justify-center sm:justify-start">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -61,10 +85,10 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-xl bg-background/10 hover:bg-primary hover:scale-110 flex items-center justify-center transition-all duration-200 shadow-sm"
                     aria-label={social.label}
                   >
-                    {(social as any).isComponent ? <Icon /> : <Icon className="h-4 w-4 sm:h-5 sm:w-5" />}
+                    {(social as any).isComponent ? <Icon /> : <Icon className="h-5 w-5" />}
                   </a>
                 );
               })}
@@ -73,8 +97,11 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Quick Links</h3>
-            <ul className="space-y-2 sm:space-y-3">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-5 relative inline-block">
+              Quick Links
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary rounded-full" />
+            </h3>
+            <ul className="space-y-2.5">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -83,7 +110,7 @@ export function Footer() {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="text-background/70 hover:text-primary transition-colors text-sm sm:text-base"
+                    className="text-background/70 hover:text-primary transition-colors text-sm sm:text-base animated-underline inline-block"
                   >
                     {link.name}
                   </a>
@@ -94,30 +121,46 @@ export function Footer() {
 
           {/* Contact Info */}
           <div className="text-center sm:text-left">
-            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Contact Info</h3>
-            <ul className="space-y-3 sm:space-y-4">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-5 relative inline-block">
+              Contact Info
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary rounded-full" />
+            </h3>
+            <ul className="space-y-4">
               <li className="flex items-start gap-3 justify-center sm:justify-start">
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-background/70 text-sm sm:text-base text-left">
+                <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-background/70 text-sm sm:text-base text-left leading-relaxed">
                   No - 332 Munidasa Kumarathunge Rd,<br />
                   Seeduwa 11410, Sri Lanka
                 </span>
               </li>
               <li className="flex items-center gap-3 justify-center sm:justify-start">
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-                <span className="text-background/70 text-sm sm:text-base">+94 75 030 7030</span>
+                <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                <a
+                  href="tel:+94750307030"
+                  className="text-background/70 hover:text-primary text-sm sm:text-base transition-colors"
+                >
+                  +94 75 030 7030
+                </a>
               </li>
               <li className="flex items-center gap-3 justify-center sm:justify-start">
-                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-                <span className="text-background/70 text-sm sm:text-base">info@tandttravels.com</span>
+                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                <a
+                  href="mailto:info@tandttravels.com"
+                  className="text-background/70 hover:text-primary text-sm sm:text-base transition-colors"
+                >
+                  info@tandttravels.com
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
-            <h3 className="font-serif text-lg sm:text-xl font-bold mb-4 sm:mb-6">Newsletter</h3>
-            <p className="text-background/70 mb-4 text-sm sm:text-base">
+            <h3 className="font-serif text-lg sm:text-xl font-bold mb-5 relative inline-block">
+              Newsletter
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary rounded-full" />
+            </h3>
+            <p className="text-background/70 mb-5 text-sm sm:text-base leading-relaxed">
               Subscribe to receive travel tips, exclusive offers, and Sri Lanka
               travel inspiration.
             </p>
@@ -125,11 +168,11 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary text-sm sm:text-base"
+                className="w-full px-4 py-3 rounded-xl bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors text-sm sm:text-base"
+                className="w-full px-4 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg text-sm sm:text-base"
               >
                 Subscribe
               </button>
@@ -138,11 +181,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-background/10 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center space-y-1 sm:space-y-2">
-          <p className="text-background/60 text-xs sm:text-base">
-            © {new Date().getFullYear()} T & T Travels. All rights reserved.
+        <div className="border-t border-background/10 mt-10 sm:mt-14 pt-7 sm:pt-8 text-center space-y-1.5">
+          <p className="text-background/60 text-xs sm:text-sm">
+            © {new Date().getFullYear()} T &amp; T Travels. All rights reserved.
           </p>
-          <p className="text-background/50 text-xs sm:text-sm">
+          <p className="text-background/40 text-xs">
             Developed by{" "}
             <a
               href="https://ideacode.org"

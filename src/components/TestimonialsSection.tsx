@@ -135,14 +135,12 @@ export function TestimonialsSection() {
         </AnimatedSection>
 
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-xs sm:text-sm">
-            Testimonials
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+          <span className="section-badge">Testimonials</span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-4 mb-5 leading-tight">
             What Our <span className="text-primary">Travelers Say</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground px-2">
-            Real reviews from travelers who've experienced the T & T difference.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
+            Real reviews from travelers who've experienced the T &amp; T difference.
           </p>
         </AnimatedSection>
 
