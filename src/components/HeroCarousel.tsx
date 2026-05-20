@@ -93,13 +93,27 @@ export function HeroCarousel() {
 
   const handleNav = (fn: () => void) => { pauseAndResume(); fn(); };
 
-  // Scroll active card into view
+  // Scroll active card into view inside the strip only (avoids scrolling/jumping the window)
   useEffect(() => {
     if (!stripRef.current) return;
     const cards = stripRef.current.querySelectorAll<HTMLButtonElement>("[data-card]");
     const activeCard = cards[current];
     if (activeCard) {
-      activeCard.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      const container = stripRef.current;
+      const containerWidth = container.clientWidth;
+      const cardWidth = activeCard.clientWidth;
+      
+      // Calculate relative position using getBoundingClientRect to avoid offsetParent issues
+      const containerRect = container.getBoundingClientRect();
+      const cardRect = activeCard.getBoundingClientRect();
+      
+      const cardOffsetLeftInContainer = cardRect.left - containerRect.left + container.scrollLeft;
+      const targetScrollLeft = cardOffsetLeftInContainer - (containerWidth / 2) + (cardWidth / 2);
+      
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: "smooth"
+      });
     }
   }, [current]);
 
