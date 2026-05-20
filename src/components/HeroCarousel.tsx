@@ -157,9 +157,9 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* ── Giant Watermark Location Name ─────────────── */}
+      {/* ── Giant Watermark Location Name (Hidden on mobile for legibility) ── */}
       <div
-        className="absolute inset-0 flex items-center justify-end overflow-hidden pointer-events-none select-none"
+        className="absolute inset-0 hidden md:flex items-center justify-end overflow-hidden pointer-events-none select-none"
         style={{ zIndex: 1 }}
       >
         <span
@@ -218,7 +218,7 @@ export function HeroCarousel() {
                   fontSize: "clamp(0.625rem, 1.2vw, 0.8125rem)",
                 }}
               >
-                T &amp; T Travels
+                T &amp; T Travels • Sri Lanka
               </span>
             </div>
 
@@ -243,7 +243,7 @@ export function HeroCarousel() {
                 Welcome to
               </p>
 
-              {/* "Sri Lanka" — bolder, gold accent */}
+              {/* Dynamic Location Title — bolder, gold accent */}
               <p
                 style={{
                   fontFamily: futura,
@@ -256,7 +256,7 @@ export function HeroCarousel() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Sri Lanka
+                {slides[current].title}
               </p>
             </div>
 
@@ -364,11 +364,11 @@ export function HeroCarousel() {
                       scrollSnapAlign: "start",
                       /* Active card: taller & wider */
                       width: isActive
-                        ? "clamp(8rem, 16vw, 13rem)"
-                        : "clamp(5.5rem, 11vw, 9rem)",
+                        ? "clamp(7rem, 14vw, 13rem)"
+                        : "clamp(5rem, 10vw, 9rem)",
                       height: isActive
-                        ? "clamp(7rem, 14vw, 11.5rem)"
-                        : "clamp(5.5rem, 11vw, 9rem)",
+                        ? "clamp(6rem, 12vw, 11.5rem)"
+                        : "clamp(5rem, 10vw, 9rem)",
                       borderRadius: "0.75rem",
                       border: isActive
                         ? "2px solid hsl(42 87% 55%)"
@@ -450,8 +450,8 @@ export function HeroCarousel() {
               })}
             </div>
 
-            {/* Navigation arrows — stacked vertically */}
-            <div className="flex flex-col gap-2 flex-shrink-0 pb-1">
+            {/* Navigation arrows — stacked vertically (hidden on mobile) */}
+            <div className="hidden sm:flex flex-col gap-2 flex-shrink-0 pb-1">
               <button
                 onClick={() => handleNav(prevSlide)}
                 aria-label="Previous destination"
